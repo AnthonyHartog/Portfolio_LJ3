@@ -1,0 +1,18 @@
+
+Project: - Has many images - Has many caterogys
+id
+Title
+Discreptoin
+user_id
+
+
+Images: - Belongs to a Project
+Project_id
+image
+
+Caterogy: - Has many Project
+Name
+project_id
+
+Users: - Has many projects
+- Laravel standard

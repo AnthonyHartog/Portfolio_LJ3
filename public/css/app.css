@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#home{
+    background-image: url('../images/background-home.jpg') !important;
+}
+
+.center{
+    top:50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%, 0);
+    position: absolute;
+    color: white;
+}
+
+.center a{
+    color: white;
+}
+
