@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    margin: 0 auto;
-    text-align: center;
+nav a{
+    color: white !important;
 }
 
+/*Home page*/
 #home{
+    margin: 0 auto;
+    text-align: center;
     background-image: url('../images/background-home.jpg') !important;
 }
 
@@ -21,5 +23,33 @@
 
 .center a{
     color: white;
+    font-size: 25px;
 }
 
+.center h1{
+    font-size: 45px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
+#aboutme{
+    margin-right: 15px;
+}
+
+/*Project page*/
+.filters{
+    border-radius: 7px;
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+.project{
+    width: 80%;
+}
+
+/*algemeen*/
+
+.min-h-screen.bg-gray-100 {
+    background-image: url('../images/background-home.jpg') !important;
+}

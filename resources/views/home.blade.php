@@ -12,10 +12,10 @@
 <body id="home">
     <main>
         <div class="center">
-            <h1>Welkom op mijn Portfolio</h1>
+            <h1>Anthony Hartog</h1>
             <div class="links">
-                <a href="">Over mij</a>
-                <a href="/projects">Projecten</a>
+                <a id="aboutme" href="#test">Over mij</a>
+                <a href="{{ route('projects.index') }}">Projecten</a>
             </div>
         </div>
     </main>

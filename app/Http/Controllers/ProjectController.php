@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Caterogy;
 
 
 class ProjectController extends Controller
@@ -13,8 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $caterogies = Project::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get();
-        return view('/project', compact('projects'));   
+        return view('/project', compact('projects', 'caterogies'));   
     }
 
     /**

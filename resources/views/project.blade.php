@@ -1,14 +1,16 @@
 <x-app-layout>
-    <x-slot name="header">
-        {{-- Hier komt het filter systeem --}}
-    </x-slot>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+        <title>Forum</title>
+    </head>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                </div>
-            </div>
-        </div>
-    </div>
+    <body class="project">
+        <h1>test</h1>
+    </body>
 </x-app-layout>
