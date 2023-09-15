@@ -1,16 +1,30 @@
 <x-app-layout>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-        <title>Forum</title>
-    </head>
+    <x-slot name="header">
+        {{-- Hier komt het filter systeem --}}
+    </x-slot>
 
-    <body class="project">
-        <h1>test</h1>
-    </body>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="filters">
+                @foreach($caterogies as $caterogy)
+                    <p>{{$caterogy->name}}</p>
+                @endforeach
+            </div>        
+            <div class="wrapper">
+                <a href="{{ route('project.create') }}" class="projectcreate">Maak een project aan</a>        
+                <div class="projects">
+                    {{-- Zorgt ervoor dat alle projecten in losse projecten word getoont --}}
+                    @foreach($projects as $project)
+                    {{-- Alles wat er van het project word getoond --}}
+                    <div class="project">
+                        <div class="image">
+                            <img src="../../public/images/background-home.jpg" alt="test.jpg">
+                        </div>
+                        <p class="title">{{$project->title}}</p>
+                    </div>
+                    @endforeach                    
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\CaterogyController;
+use App\Http\Controllers\CategoryController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 Route::resource('/projects', ProjectController::class);
 
-Route::resource('project', ProjectController::class)->middleware('auth');
-Route::resource('/caterogies', CaterogyController::class)->middleware('auth');
+Route::resource('/project', ProjectController::class)->middleware('auth');
+Route::resource('/categories', CategoryController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

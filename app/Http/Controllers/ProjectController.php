@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Models\Caterogy;
+use App\Models\Category;
 
 
 class ProjectController extends Controller
@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $caterogies = Project::orderBy('id', 'desc')->get();
+        $caterogies = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get();
         return view('/project', compact('projects', 'caterogies'));   
     }
@@ -24,7 +24,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $caterogies = Category::orderBy('id', 'desc')->get();
+        $projects = Project::orderBy('id', 'desc')->get();
+        return view('/createproject', compact('projects', 'caterogies'));   
     }
 
     /**

@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    color: white;
+}
+
 nav a{
     color: white !important;
+}
+
+.wrapper{
+    width: 70%;
 }
 
 /*Home page*/
@@ -44,12 +52,29 @@ nav a{
     text-align: center;
 }
 
-.project{
-    width: 80%;
+.title{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.projects{
+    margin-top: 15px;
+}
+
+.projectcreate{
+    border-bottom: 1px solid white;
+    color: white;
 }
 
 /*algemeen*/
 
 .min-h-screen.bg-gray-100 {
     background-image: url('../images/background-home.jpg') !important;
+}
+
+/* Project form */
+
+.formproject{
+    display: flex;
+    justify-content: center;
 }
