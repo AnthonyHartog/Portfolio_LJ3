@@ -11,7 +11,7 @@ nav a{
 }
 
 .wrapper{
-    width: 70%;
+    margin: 0 auto;
 }
 
 /*Home page*/
@@ -74,7 +74,29 @@ nav a{
 
 /* Project form */
 
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-flow: dense;
+}
+
+.project{
+    margin-bottom: 15px;
+}
+
 .formproject{
     display: flex;
     justify-content: center;
+}
+
+.form-group{
+    color: black !important;
+}
+
+.projectimage{
+    width: 400px;
+    height: 250px;
+    object-fit: cover; 
+    object-position:center;
 }

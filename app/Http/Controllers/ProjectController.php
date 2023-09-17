@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\Image;
 
 
 class ProjectController extends Controller
@@ -16,7 +17,7 @@ class ProjectController extends Controller
     {
         $caterogies = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get();
-        return view('/project', compact('projects', 'caterogies'));   
+        return view('/projects', compact('projects', 'caterogies'));   
     }
 
     /**
@@ -34,7 +35,30 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Maak het project aan
+        $request->validate([
+            'category_id' => 'required',
+            'description' => 'required',
+            'title' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $project = Project::create($request->post());
+
+        //Maak de image aan en link hem aan het project
+
+        if($request->image != NULL){        
+            $imageName = $request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $imageName);
+
+            Image::create([
+                'image' => $imageName,
+                'project_id' => $project->id,
+            ]);
+        }
+
+        return $this->index();
+
     }
 
     /**
@@ -42,7 +66,8 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $project = Project::find($id);
+        return view('/project', compact('project'));
     }
 
     /**
