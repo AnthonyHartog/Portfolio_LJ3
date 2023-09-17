@@ -4,27 +4,13 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="filters">
-                @foreach($caterogies as $caterogy)
-                    <p>{{$caterogy->name}}</p>
-                @endforeach
-            </div>        
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">   
             <div class="wrapper">
-                <a href="{{ route('project.create') }}" class="projectcreate">Maak een project aan</a>        
-                <div class="projects">
-                    {{-- Zorgt ervoor dat alle projecten in losse projecten word getoont --}}
-                    @foreach($projects as $project)
-                    {{-- Alles wat er van het project word getoond --}}
-                    <div class="project">
-                        <div class="image">
-                            <img src="../../public/images/background-home.jpg" alt="test.jpg">
-                        </div>
-                        <p class="title">{{$project->title}}</p>
-                    </div>
-                    @endforeach                    
-                </div>
-            </div>
+                @foreach($project->images as $image)
+                    <img src="{{asset('images/' . $image->image)}}" alt="test.jpg">
+                @endforeach
+                <h1>{{$project->title}}</h1>   
+                <p>{{$project->description}}</p>            
         </div>
     </div>
 </x-app-layout>
