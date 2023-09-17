@@ -6,8 +6,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="filters">
-                @foreach($caterogies as $caterogy)
-                    <p>{{$caterogy->name}}</p>
+                @foreach($caterogies as $category)
+                    <a href="{{ route('categorie.show', $category->id) }}">{{$category->name}}</a>
                 @endforeach
             </div>        
             <div class="wrapper">

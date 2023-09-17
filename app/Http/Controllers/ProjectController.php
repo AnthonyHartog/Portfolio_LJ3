@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         $caterogies = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get();
-        return view('/projects', compact('projects', 'caterogies'));   
+        return view('projects', compact('projects', 'caterogies'));   
     }
 
     /**
@@ -27,7 +27,7 @@ class ProjectController extends Controller
     {
         $caterogies = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get();
-        return view('/createproject', compact('projects', 'caterogies'));   
+        return view('createproject', compact('projects', 'caterogies'));   
     }
 
     /**
@@ -67,7 +67,7 @@ class ProjectController extends Controller
     public function show(string $id)
     {
         $project = Project::find($id);
-        return view('/project', compact('project'));
+        return view('project', compact('project'));
     }
 
     /**

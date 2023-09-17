@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -35,7 +37,9 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $projects = Project::where('category_id', $id)->get();
+        $caterogies = Category::orderBy('id', 'desc')->get();
+        return view('projects', compact('projects', 'caterogies'));   
     }
 
     /**

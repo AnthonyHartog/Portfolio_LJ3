@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/projects', ProjectController::class);
+Route::resource('/categorie', CategoryController::class);
 
 Route::resource('/project', ProjectController::class)->middleware('auth');
 Route::resource('/categories', CategoryController::class)->middleware('auth');
