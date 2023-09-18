@@ -25,8 +25,8 @@
                                 </div>
                                 <div class="form-group">
                                     <strong>Afbeelding:</strong>
-                                    <input type="file" name="image" class="form-control" placeholder="Titel">
-                                    @error('title')
+                                    <input type="file" name="images[]" class="form-control" multiple="true">
+                                    @error('images')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
                                 </div>

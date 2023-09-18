@@ -45,19 +45,22 @@ class ProjectController extends Controller
 
         $project = Project::create($request->post());
 
-        //Maak de image aan en link hem aan het project
-
-        if($request->image != NULL){        
-            $imageName = $request->image->getClientOriginalName();
-            $request->image->move(public_path('images'), $imageName);
-
-            Image::create([
-                'image' => $imageName,
-                'project_id' => $project->id,
-            ]);
+        //Kijk of er een image mee is gegeven
+        if($request->images != NULL && $request->hasFile('images')){  
+            //Loop erdoorheen   
+            foreach($request->images as $image){
+                //Sla de image op
+                $imageName = $image->getClientOriginalName();
+                $image->move(public_path('images'), $imageName);
+    
+                Image::create([
+                    'image' => $imageName,
+                    'project_id' => $project->id,
+                ]);
+            }   
         }
 
-        return $this->index();
+        return redirect()->route('projects.index');
 
     }
 
@@ -89,8 +92,15 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $images = Image::where('project_id', $project->id)->get();
+        foreach($images as $image){
+            $image->delete();
+        }
+
+        $project->delete();
+
+        return redirect()->route('projects.index');
     }
 }

@@ -22,6 +22,7 @@
                                 {{-- Haalt alle afbeeldingen op --}}
                                 @foreach($project->images as $image)
                                     <img class="projectimage" src="{{asset('images/' . $image->image)}}" alt="test.jpg">
+                                    @break;
                                 @endforeach
                             </div>
                             <p class="title">{{$project->title}}</p>
