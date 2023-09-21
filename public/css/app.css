@@ -94,6 +94,18 @@ nav a{
     color: black !important;
 }
 
+.form-group textarea{
+    color: black !important;
+}
+
+.form-group select{
+    color: black !important;
+}
+
+.form-group option{
+    color: black !important;
+}
+
 .form-group form{
     display: flex;
     justify-content: center;
@@ -114,6 +126,12 @@ nav a{
     background-color: darkcyan;
     border-radius: 5px;
     margin: 10px;
+}
+
+/* Project create form */
+
+.project-form-input{
+    width: 350px;
 }
 
 /* Project form */

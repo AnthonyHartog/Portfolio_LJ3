@@ -13,48 +13,46 @@
                     @endforeach
                     @endif
                     {{-- Form om een project aan te maken --}}
-                    <form class="formproject" action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                                <div class="form-group">
-                                    <strong>Titel:</strong>
-                                    <input type="text" name="title" class="form-control" placeholder="Titel">
-                                    @error('title')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <strong>Afbeelding:</strong>
-                                    <input type="file" name="images[]" class="form-control" multiple="true">
-                                    @error('images')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <strong>Beschrijving:</strong>
-                                    <textarea name="description" cols="30" rows="10" placeholder="Inhoud"></textarea>
-                                    @error('description')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <strong>Caterogie:</strong>
-                                    <select name="category_id" id="" class="form-control">
-                                        @foreach($caterogies as $caterogie)
-                                            <option value="{{$caterogie->id}}">{{$caterogie->name}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('content')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
+                    <div class="form-group">
+                        <form class="formproject" action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-row">
+                                <strong>Titel:</strong>
+                                <input class="project-form-input" type="text" name="title" placeholder="Titel">
+                                @error('title')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                             </div>
-            
-                            <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                            <div class="form-row">
+                                <strong>Afbeelding:</strong>
+                                <input class="project-form-input" type="file" name="images[]" multiple="true">
+                                @error('images')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-row">
+                                <strong>Beschrijving:</strong>
+                                <textarea class="project-form-input" name="description" cols="30" rows="10" placeholder="Inhoud"></textarea>
+                                @error('description')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-row">
+                                <strong>Caterogie:</strong>
+                                <select class="project-form-input" name="category_id" id="">
+                                    @foreach($caterogies as $caterogie)
+                                        <option value="{{$caterogie->id}}">{{$caterogie->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('content')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
                             
-                            <button type="submit" class="btn btn-primary ml-3">Submit</button>
-                        </div>
-                    </form>
+                            <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
