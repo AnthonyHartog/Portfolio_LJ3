@@ -10,6 +10,10 @@ nav a{
     color: white !important;
 }
 
+.rounded-md.ring-1.ring-black.ring-opacity-5.py-1.bg-white {
+    background-color: darkgray !important;
+}
+
 .wrapper{
     margin: 0 auto;
 }
@@ -50,6 +54,13 @@ nav a{
     background-color: gray;
     color: white;
     text-align: center;
+    display:flex;
+    justify-content: center;
+}
+
+.filterp{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .title{
@@ -99,4 +110,11 @@ nav a{
     height: 250px;
     object-fit: cover; 
     object-position:center;
+}
+
+/* Edit project page */
+
+.imageedit{
+    margin-bottom: 15px; 
+    margin-top: 15px;
 }
