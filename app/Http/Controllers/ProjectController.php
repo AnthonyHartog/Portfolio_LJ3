@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Image;
+use Illuminate\Support\Facades\File;
 
 
 class ProjectController extends Controller
@@ -76,17 +77,53 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        $caterogies = Category::orderBy('id', 'desc')->get();
+        return view('/editproject', compact('project', 'caterogies'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        if($request->images != NULL && $request->hasFile('images')){  
+            //Loop erdoorheen   
+            foreach($request->images as $image){
+                //Sla de image op
+                $imageName = $image->getClientOriginalName();
+                $image->move(public_path('images'), $imageName);
+    
+                Image::create([
+                    'image' => $imageName,
+                    'project_id' => $project->id,
+                ]);
+            }   
+        }
+
+        if($request->deleteimages != NULL){
+            foreach($request->deleteimages as $image){
+                $imageFind = Image::findOrFail($image);
+                $imageName = $imageFind->image;
+                File::delete(public_path('images/' . $imageName));
+                Image::find($image)->delete();
+            }
+        }
+
+        $projectValidation = $request->validate([
+            'category_id' => 'required',
+            'description' => 'required',
+            'title' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $request->request->remove('deleteimage');
+        $request->request->remove('deleteimages');
+
+        $project->fill($request->post())->save();
+        return redirect()->route('projects.show', $project->id);
+
     }
 
     /**
@@ -96,6 +133,8 @@ class ProjectController extends Controller
     {
         $images = Image::where('project_id', $project->id)->get();
         foreach($images as $image){
+            $imageName = $image->image;
+            File::delete(public_path('images/' . $imageName));
             $image->delete();
         }
 

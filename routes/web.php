@@ -28,7 +28,7 @@ Route::resource('/project', ProjectController::class)->middleware('auth');
 Route::resource('/categories', CategoryController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('projects.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

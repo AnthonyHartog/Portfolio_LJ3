@@ -6,12 +6,18 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="filters">
+                <p class="filterp"> | </p>
+                <a href="{{route('projects.index')}}">Alles</a>
+                <p class="filterp"> | </p>
                 @foreach($caterogies as $category)
                     <a href="{{ route('categorie.show', $category->id) }}">{{$category->name}}</a>
+                    <p class="filterp"> | </p>
                 @endforeach
             </div>        
             <div class="wrapper">
-                <a href="{{ route('project.create') }}" class="projectcreate">Maak een project aan</a>        
+                @if(Auth::user() != NULL)
+                    <a href="{{ route('project.create') }}" class="projectcreate">Maak een project aan</a>    
+                @endif    
                 <div class="projects">
                     {{-- Zorgt ervoor dat alle projecten in losse projecten word getoont --}}
                     @foreach($projects as $project)
@@ -21,7 +27,7 @@
                             <div class="image">
                                 {{-- Haalt alle afbeeldingen op --}}
                                 @foreach($project->images as $image)
-                                    <img class="projectimage" src="{{asset('images/' . $image->image)}}" alt="test.jpg">
+                                    <img class="projectimage" src="{{asset('images/' . $image->image)}}" alt="{{$image->image}}">
                                     @break;
                                 @endforeach
                             </div>
