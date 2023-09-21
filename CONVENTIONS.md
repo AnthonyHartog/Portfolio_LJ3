@@ -7,7 +7,7 @@ Wij hebben lowerCamalCase voor variables.
 
 Hier voorbeeld van lowerCamalCase in die uit mijn project komt.
 
-******
+/* Dit is PHP Code */
 ```//Kijk of er een image mee is gegeven
 if($request->images != NULL && $request->hasFile('images')){  
     //Loop erdoorheen   
@@ -22,7 +22,7 @@ if($request->images != NULL && $request->hasFile('images')){
         ]);
     }   
 }
-******```
+```
 
 ## UpperCamalCase
 UpperCamalCase gebruiken we voor model en controller namen.
