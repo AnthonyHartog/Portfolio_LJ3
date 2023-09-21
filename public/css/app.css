@@ -83,6 +83,39 @@ nav a{
     background-image: url('../images/background-home.jpg') !important;
 }
 
+/*form(s) */
+
+.form-group{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group input{
+    color: black !important;
+}
+
+.form-group form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategrey;
+    border-radius: 20px;
+    width: 70%;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group button{
+    padding: 5px;
+    background-color: darkcyan;
+    border-radius: 5px;
+    margin: 10px;
+}
+
 /* Project form */
 
 .projects{
@@ -101,10 +134,6 @@ nav a{
     justify-content: center;
 }
 
-.form-group{
-    color: black !important;
-}
-
 .projectimage{
     width: 400px;
     height: 250px;
@@ -112,9 +141,81 @@ nav a{
     object-position:center;
 }
 
+/*Project */
+
+.project-information{
+    text-align: center;
+}
+
+.project-information h1{
+    font-size: 300%;
+}
+
+.slideshow{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px dotted white;
+    margin-bottom: 10px;
+}
+
+.slideshow-images{
+    border: 2px solid black;
+    box-shadow: 0 0 10px 5px #000;
+}
+
+.slideshow-image{
+    width: 900px;
+    height: 500px;
+    object-fit: cover; 
+    object-position:center;
+}
+
+.slideshow-buttons{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.previous{
+    background-color: darkcyan;
+    padding: 7px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.next{
+    background-color: darkcyan;
+    padding: 7px;
+    border-radius: 5px;
+}
+
 /* Edit project page */
 
 .imageedit{
     margin-bottom: 15px; 
     margin-top: 15px;
+}
+
+/*contact*/
+
+.contact-top{
+    display:flex;
+}
+
+.contact-bottom{
+    display:flex;
+    flex-direction: column;
+}
+
+.contact-form-input{
+    width: 300px;
+}
+
+#contact-name{
+    margin-right: 50px;
+}
+
+#contact-message{
+    width: 650px;
 }

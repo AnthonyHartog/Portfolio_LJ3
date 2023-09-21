@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::resource('/contact', ContactController::class);
 Route::resource('/projects', ProjectController::class);
 Route::resource('/categorie', CategoryController::class);
 
