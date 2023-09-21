@@ -5,6 +5,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            {{-- Fitler systeem op categories --}}
             <div class="filters">
                 <p class="filterp"> | </p>
                 <a href="{{route('projects.index')}}">Alles</a>

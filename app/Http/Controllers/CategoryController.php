@@ -37,6 +37,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
+        //Vind in de projects alleen de projecten met een specifieke categorie
         $projects = Project::where('category_id', $id)->get();
         $caterogies = Category::orderBy('id', 'desc')->get();
         return view('projects', compact('projects', 'caterogies'));   

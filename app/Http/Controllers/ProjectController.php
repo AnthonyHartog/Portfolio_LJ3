@@ -102,8 +102,10 @@ class ProjectController extends Controller
             }   
         }
 
+        //Kijk of er images verwijderd moeten worden
         if($request->deleteimages != NULL){
             foreach($request->deleteimages as $image){
+                //Vind de image en verwijder het
                 $imageFind = Image::findOrFail($image);
                 $imageName = $imageFind->image;
                 File::delete(public_path('images/' . $imageName));
@@ -111,7 +113,7 @@ class ProjectController extends Controller
             }
         }
 
-        $projectValidation = $request->validate([
+        $request->validate([
             'category_id' => 'required',
             'description' => 'required',
             'title' => 'required',
@@ -121,6 +123,7 @@ class ProjectController extends Controller
         $request->request->remove('deleteimage');
         $request->request->remove('deleteimages');
 
+        //Wijzig de informatie in het project
         $project->fill($request->post())->save();
         return redirect()->route('projects.show', $project->id);
 
@@ -131,8 +134,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        //Vind de image(s)
         $images = Image::where('project_id', $project->id)->get();
+        //Ga door de images heen
         foreach($images as $image){
+            //Verwijder de image
             $imageName = $image->image;
             File::delete(public_path('images/' . $imageName));
             $image->delete();

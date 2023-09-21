@@ -12,7 +12,7 @@
                         <li> {{ $error }}</li>
                     @endforeach
                     @endif
-                    {{-- Form om een project aan te maken --}}
+                    {{-- Form om een project aan te editen --}}
                     <div class="form-group">
                         <form class="formproject" action="{{ route('project.update',$project->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
