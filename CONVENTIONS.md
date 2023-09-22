@@ -3,7 +3,7 @@ In dit project hebben wij verschillende soorten eisen
 # Eisen
 
 ## LowerCamalCase
-Wij hebben lowerCamalCase voor variables.
+Wij hebben lowerCamalCase voor variables. Gebruik ook een logische naamgeving voor de variables.
 
 Hier voorbeeld van lowerCamalCase in die uit mijn project komt.
 
@@ -25,7 +25,7 @@ if($request->images != NULL && $request->hasFile('images')){
 ```
 
 ## UpperCamalCase
-UpperCamalCase gebruiken we voor model en controller namen.
+UpperCamalCase gebruiken we voor model en controller namen. Gebruik ook een logische naamgeving voor de Models en Controllers.
 
 Hier wat voorbeelden van UpperCamalCase:
 
@@ -36,6 +36,23 @@ ProfileController
 Project
 Image
 Caterogy
+
+## Inspringen
+
+Let erop dat je tijdens het programmeren goed inspringt en alels overzichtelijk neerzet, zodat het leesbaar is voor iedereen.
+
+/* PHP
+
+```
+foreach($images as $image){
+    $imageName = $image->image;
+    File::delete(public_path('images/' . $imageName));
+    $image->delete();
+}
+```
+
+Zoals je hier ziet is er ingesprongen en zit er verschil tussen de lijnen zodat het overzichtelijk is.
+Hiervoor gebruiken wij ook tabs om in te springen
 
 ## Laravel regels
 
